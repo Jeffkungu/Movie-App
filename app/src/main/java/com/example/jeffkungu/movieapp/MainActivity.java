@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Movie> movieList;
     ProgressDialog pd;
     private SwipeRefreshLayout swipeContainer;
-    private static final String LOG_TAG = MoviesAdapter.class.getName();
+    public static final String LOG_TAG = MoviesAdapter.class.getName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
+        // Refreshes layout when user swipes down across the screem
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.main_content);
         swipeContainer.setColorSchemeResources(android.R.color.holo_orange_dark);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Nethod to return the context of the main activity
     public Activity getActivity() {
         Context context = this;
         while (context instanceof ContextWrapper) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
+    // Initialises the fields
     private void initViews() {
         pd = new ProgressDialog(this);
         pd.setMessage("Fetching Movies...");
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         movieList = new ArrayList<>();
         adapter = new MoviesAdapter(this, movieList);
 
+        // Manages the layout display when device is in Landscape or Portrait
         if (getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         } else {
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         LoadJson();
     }
 
+    //
     private void LoadJson() {
         try {
             if (BuildConfig.THE_MOVIE_DB_API_TOKEN.isEmpty()) {

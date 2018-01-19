@@ -55,6 +55,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         return movieList.size();
     }
 
+    public void notifyDataSetChange() {
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title, userRating;
         public ImageView thumbnail;

@@ -7,9 +7,41 @@ import java.util.List;
 
 /**
  * Created by Jeffkungu on 10/11/2017.
+ *
+ * The Movie class is used to manage and present the information of a movie as fetched from the MovieDb Api.
+ *
+ * Example: below is a JSON data illustrating the (vote_count, id, poster_path, adult, overview, release_date, genre_ids... etc) as main keys within the results value.
+ {
+     "page": 1,
+     "total_results": 19797,
+     "total_pages": 990,
+     "results": [
+         {
+             "vote_count": 5798,
+             "id": 346364,
+             "video": false,
+             "vote_average": 7.1,
+             "title": "It",
+             "popularity": 746.197542,
+             "poster_path": "/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg",
+             "original_language": "en",
+             "original_title": "It",
+             "genre_ids": [
+                 18,
+                 27,
+                 53
+             ],
+             "backdrop_path": "/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg",
+             "adult": false,
+             "overview": "In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise.",
+             "release_date": "2017-09-05"
+         }
+ }
  */
 
 public class Movie {
+
+    // The @SerialisedName annotetion indicates this member should be serialized to JSON with the provided name value as its field name.
     @SerializedName("poster_path")
     private String posterPath;
     @SerializedName("adult")
@@ -39,6 +71,7 @@ public class Movie {
     @SerializedName("vote_average")
     private Double voteAverage;
 
+    // Constructor to initialise the above private fields with their serialised values.
     public Movie(String posterPath, boolean adult, String overview, String releaseDate, List<Integer> genreIds, Integer id,
                  String originalTitle, String originalLanguage, String title, String backdropPath, Double popularity,
                  Integer voteCount, Boolean video, Double voteAverage) {
