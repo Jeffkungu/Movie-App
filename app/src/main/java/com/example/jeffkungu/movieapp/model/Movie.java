@@ -71,6 +71,8 @@ public class Movie {
     @SerializedName("vote_average")
     private Double voteAverage;
 
+    private String baseImageUrl;
+
     // Constructor to initialise the above private fields with their serialised values.
     public Movie(String posterPath, boolean adult, String overview, String releaseDate, List<Integer> genreIds, Integer id,
                  String originalTitle, String originalLanguage, String title, String backdropPath, Double popularity,
@@ -91,9 +93,8 @@ public class Movie {
         this.voteAverage = voteAverage;
     }
 
-    String baseImageUrl = "https://image.tmdb.org/t/p/w500";
-
     public String getPosterPath(){
+        baseImageUrl = "https://image.tmdb.org/t/p/w500";
         return baseImageUrl + posterPath;
     }
 
