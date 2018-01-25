@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     // Gets JSON object data from the MovieDb Api and renders it on main activity.
     // Calls Service.getPopularMovies method which returns JSON object containing Popular Movies.
-    private void loadJSON() {
+    private void loadPopularMoviesJSON() {
         try {
             if (BuildConfig.THE_MOVIE_DB_API_TOKEN.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please obtain API key from themoviedb.org", Toast.LENGTH_SHORT).show();
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     // Gets JSON object data from the MovieDb Api and renders it on main activity.
     // Calls Service.getTopRatedMovies method which returns JSON object containing TopRated Movies.
-    private void loadJSON1() {
+    private void loadTopRatedMoviesJSON() {
         try {
             if (BuildConfig.THE_MOVIE_DB_API_TOKEN.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please obtain API key from themoviedb.org", Toast.LENGTH_SHORT).show();
@@ -208,10 +208,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             );
             if (sortOrder.equals(this.getString(R.string.pref_most_popular))){
                 Log.d(LOG_TAG, "Sorting by most popular");
-                loadJSON();
+                loadPopularMoviesJSON();
             } else{
                 Log.d(LOG_TAG, "Sorting by most rated");
-                loadJSON1();
+                loadTopRatedMoviesJSON();
             }
     }
 
