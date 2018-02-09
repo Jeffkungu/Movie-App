@@ -6,6 +6,26 @@ import java.util.List;
 
 /**
  * Created by Jeffkungu on 25/01/2018.
+ *
+ * TrailerResponse is a model representing the data fetched from calling the trailer endpoint of the MovieDb Api
+ *
+ * Example below is a representation of the Jason data retrieved:
+ *
+ * {
+     "id": 550,
+     "results": [
+         {
+             "id": "58f730779251415dfe009fc7",
+             "iso_639_1": "en",
+             "iso_3166_1": "US",
+             "key": "BdJKm16Co6M",
+             "name": "Official #TBT Trailer",
+             "site": "YouTube",
+             "size": 360,
+             "type": "Trailer"
+         }
+     ]
+   }
  */
 
 public class TrailerResponse {
