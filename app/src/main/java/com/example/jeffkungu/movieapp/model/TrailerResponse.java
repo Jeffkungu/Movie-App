@@ -9,7 +9,7 @@ import java.util.List;
  *
  * TrailerResponse is a model representing the data fetched from calling the trailer endpoint of the MovieDb Api
  *
- * Example below is a representation of the Jason data retrieved:
+ * Example below is a representation of the JSON data retrieved from the api:
  *
  * {
      "id": 550,
